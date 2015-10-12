@@ -9,7 +9,7 @@ echo "Dumping global settings and users"
 pg_dumpall --global > $backups_dir/postgres-global-dump.sql
 gzip -f $backups_dir/postgres-global-dump.sql
 
-dbs_to_ignore="template0 template1 information_schema"
+dbs_to_ignore="template0 template1"
 
 echo "Dumping each database..."
 sql="SELECT datname FROM pg_database WHERE datname NOT IN ("
