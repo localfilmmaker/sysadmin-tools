@@ -1,0 +1,9 @@
+
+
+# Check for a tmp/ssh.env file and load it automatically, if it contains a valid SSH_AUTH_SOCK socket
+if [ -f $HOME/tmp/ssh.env ]; then
+    if test -S $(grep SSH_AUTH_SOCK tmp/ssh.env | cut -d'=' -f2); then
+        . $HOME/tmp/ssh.env
+    fi
+fi
+                
